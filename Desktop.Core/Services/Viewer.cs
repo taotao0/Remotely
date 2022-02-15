@@ -197,10 +197,40 @@ namespace Remotely.Desktop.Core.Services
 
         public async Task SendCtrlAltDel()
         {
-            await CasterSocket.SendCtrlAltDelToAgent();
+            byte VK_CTRL = 0x11;
+            byte VK_SHIFT = 0x10;
+            byte VK_ESC = 0x1B;
+
+            User32.SendSAS(false);
+
+            User32.Keybd_event(VK_CTRL, 0, 0x1, UIntPtr.Zero);
+            User32.Keybd_event(VK_SHIFT, 0, 0x1, UIntPtr.Zero);
+            User32.Keybd_event(VK_ESC, 0, 0x1, UIntPtr.Zero);
+
+            Thread.Sleep(100);
+
+            User32.Keybd_event(VK_CTRL, 0, 0x2, UIntPtr.Zero);
+            User32.Keybd_event(VK_SHIFT, 0, 0x2, UIntPtr.Zero);
+            User32.Keybd_event(VK_ESC, 0, 0x2, UIntPtr.Zero);
+            /*
+            private readonly uint KEYDOWN = 0x1;
+            private readonly uint KEYUP = 0x2;
+
+
+            User32.Keybd_event(VK_CTRL, 0, 0x1, 0);
+            User32.Keybd_event(VK_ALT, 0, 0x1, 0);
+            User32.Keybd_event(VK_ESC, 0, 0x1, 0);
+
+            User32.Keybd_event(VK_CTRL, 0, 0x2, 0);
+            User32.Keybd_event(VK_ALT, 0, 0x2, 0);
+            User32.Keybd_event(VK_ESC, 0, 0x2, 0);
+            */
+            //User32.SendSAS(true);
+
+            //await CasterSocket.SendCtrlAltDelToAgent();
         }
 
-        public async Task SendCursorChange(CursorInfo cursorInfo)
+    public async Task SendCursorChange(CursorInfo cursorInfo)
         {
             if (cursorInfo is null)
             {

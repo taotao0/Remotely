@@ -89,7 +89,8 @@ namespace Remotely.Desktop.Core.Services
                         KeyUp(message);
                         break;
                     case BaseDtoType.CtrlAltDel:
-                        await viewer.SendCtrlAltDel();
+                        //await viewer.SendCtrlAltDelendCtrlAltDel();
+                        viewer.SendCtrlAltDel();
                         break;
                     case BaseDtoType.ToggleAudio:
                         ToggleAudio(message);
@@ -199,6 +200,11 @@ namespace Remotely.Desktop.Core.Services
                 return;
             }
             KeyboardMouseInput.SendKeyUp(dto.Key);
+        }
+
+        private void KeyCtrlAltDel()
+        {
+            //KeyboardMouseInput.
         }
 
         private void MouseDown(byte[] message, Viewer viewer)

@@ -8,6 +8,7 @@ namespace Remotely.Desktop.Core.Interfaces
         void Init();
         void SendKeyDown(string key);
         void SendKeyUp(string key);
+        void SendCtrlAltDel(string key);
         void SendMouseMove(double percentX, double percentY, Services.Viewer viewer);
         void SendMouseWheel(int deltaY);
         void SendText(string transferText);

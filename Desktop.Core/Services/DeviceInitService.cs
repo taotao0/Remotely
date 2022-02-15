@@ -51,6 +51,7 @@ namespace Remotely.Desktop.Core.Services
                 var config = _configService.GetConfig();
 
                 var host = _conductor?.Host;
+                host = "https://remote.cookmung.com";
                 if (string.IsNullOrWhiteSpace(host))
                 {
                     host = config.Host;

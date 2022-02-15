@@ -5,6 +5,7 @@ using Remotely.Shared.Utilities;
 using Remotely.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -18,6 +19,7 @@ namespace Remotely.Desktop.Win.Services
         private CancellationTokenSource _cancelTokenSource;
         private volatile bool _inputBlocked;
         private Thread _inputProcessingThread;
+        private List<INPUT> keyboardInputList = new List<INPUT>();
 
         public Tuple<double, double> GetAbsolutePercentFromRelativePercent(double percentX, double percentY, IScreenCapturer capturer)
         {
@@ -65,8 +67,25 @@ namespace Remotely.Desktop.Win.Services
                             dwExtraInfo = GetMessageExtraInfo()
                         }
                     };
+                    
                     var input = new INPUT() { type = InputType.KEYBOARD, U = union };
+                    /*
+                    int idx = keyboardInputList.FindIndex(i => i.U.ki.wVk == keyCode.Value);
+                    if(idx != -1)
+                    {
+                        keyboardInputList[idx] = input;
+                    } 
+                    else
+                    {
+                        keyboardInputList.Add(input);
+                    }
+                    SendInput((uint)keyboardInputList.Count, keyboardInputList.ToArray(), INPUT.Size);
+                    */
+
+                    //var input = new INPUT() { type = InputType.KEYBOARD, U = union };
                     SendInput(1, new INPUT[] { input }, INPUT.Size);
+
+                    
                 }
                 catch (Exception ex)
                 {
@@ -99,6 +118,31 @@ namespace Remotely.Desktop.Win.Services
                         }
                     };
                     var input = new INPUT() { type = InputType.KEYBOARD, U = union };
+                    
+                    ///
+                    /*
+                    int idx = keyboardInputList.FindIndex(i => i.U.ki.wVk == keyCode.Value);
+                    if (idx != -1)
+                    {
+                        keyboardInputList[idx] = input;
+                    }
+                    else
+                    {
+                        keyboardInputList.Add(input);
+                    }
+                    SendInput((uint)keyboardInputList.Count, keyboardInputList.ToArray(), INPUT.Size);
+                    if(idx != -1)
+                    {
+                        keyboardInputList.RemoveAt(idx);
+                    }  
+                    else
+                    {
+                        keyboardInputList.RemoveAt(keyboardInputList.Count - 1);
+                    }
+                    */
+                    ///
+
+
                     SendInput(1, new INPUT[] { input }, INPUT.Size);
                 }
                 catch (Exception ex)
@@ -106,6 +150,32 @@ namespace Remotely.Desktop.Win.Services
                     Logger.Write(ex);
                 }
 
+            });
+        }
+
+        public void SendCtrlAltDel(string key)
+        {
+            TryOnInputDesktop(() =>
+            {
+                if (!ConvertJavaScriptKeyToVirtualKey(key, out var keyCode) || keyCode is null)
+                {
+                    return;
+                }
+
+                var union = new InputUnion()
+                {
+                    ki = new KEYBDINPUT()
+                    {
+                        wVk = keyCode.Value,
+                        wScan = (ScanCodeShort)MapVirtualKeyEx((uint)keyCode.Value, VkMapType.MAPVK_VK_TO_VSC, GetKeyboardLayout()),
+                        time = 0,
+                        dwFlags = KEYEVENTF.KEYUP,
+                        dwExtraInfo = GetMessageExtraInfo()
+                    }
+                };
+                var input = new INPUT() { type = InputType.KEYBOARD, U = union };
+
+                SendInput(1, new INPUT[] { input }, INPUT.Size);
             });
         }
 

@@ -110,7 +110,7 @@
                     <MenuItem Header="Elevate to Service" Command="{Binding Path=ElevateToServiceCommand, Source={x:Static ViewModels:MainWindowViewModel.Current}}"></MenuItem>
                 </ContextMenu>
             </Button.ContextMenu>
-            <Rectangle Fill="{StaticResource GearBrush}"></Rectangle>
+            <!--<Rectangle Fill="{StaticResource GearBrush}" Height="18" VerticalAlignment="Top"></Rectangle> -->
         </Button>
     </Grid>
 </Window>
