@@ -57,6 +57,12 @@ namespace Remotely.Server.API
                     }
                 case "MacOS-arm64":
                     {
+
+
+
+
+
+
                         var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "Remotely_Desktop");
                         return await GetDesktopFile(filePath);
                     }
