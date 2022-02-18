@@ -389,7 +389,6 @@ namespace Remotely.Desktop.Win.Services
                 "Alt" => VirtualKey.MENU,
                 "Control" => VirtualKey.CONTROL,
                 "Shift" => VirtualKey.SHIFT,
-                "HangulMode" => VirtualKey.HANGUL,
                 "PAUSE" => VirtualKey.PAUSE,
                 "BREAK" => VirtualKey.PAUSE,
                 "Backspace" => VirtualKey.BACK,

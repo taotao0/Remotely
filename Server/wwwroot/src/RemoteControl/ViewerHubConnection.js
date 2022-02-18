@@ -62,7 +62,6 @@ export class ViewerHubConnection {
         });
         hubConnection.on("ConnectionRequestDenied", () => {
             this.Connection.stop();
-            UI.ConnectButton.disabled = true;
             UI.StatusMessage.innerHTML = "Connection request denied.";
             ShowMessage("Connection request denied.");
         });
