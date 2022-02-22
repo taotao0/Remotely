@@ -22,10 +22,10 @@
 // THE SOFTWARE.
 
 using Microsoft.Win32;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Win.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Win.Models;
+using URemote.Shared.Utilities;
+using URemote.Shared.Win32;
 using SharpDX;
 using SharpDX.Direct3D11;
 using SharpDX.DXGI;
@@ -38,7 +38,7 @@ using System.Runtime.InteropServices;
 using System.Threading;
 using System.Windows.Forms;
 
-namespace Remotely.Desktop.Win.Services
+namespace URemote.Desktop.Win.Services
 {
     public class ScreenCapturerWin : IScreenCapturer
     {

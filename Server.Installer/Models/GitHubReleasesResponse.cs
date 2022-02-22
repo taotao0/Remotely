@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Installer.Models
+namespace URemote.Server.Installer.Models
 {
 
     public class GitHubReleasesResponsePayload

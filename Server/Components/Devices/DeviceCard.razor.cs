@@ -3,15 +3,15 @@ using Microsoft.AspNetCore.Components.Forms;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.SignalR;
 using Microsoft.Extensions.Logging;
-using Remotely.Server.Auth;
-using Remotely.Server.Enums;
-using Remotely.Server.Hubs;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.ViewModels;
+using URemote.Server.Auth;
+using URemote.Server.Enums;
+using URemote.Server.Hubs;
+using URemote.Server.Models;
+using URemote.Server.Services;
+using URemote.Shared.Enums;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
+using URemote.Shared.ViewModels;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -19,7 +19,7 @@ using System.Linq;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Components.Devices
+namespace URemote.Server.Components.Devices
 {
     public partial class DeviceCard : AuthComponentBase, IDisposable
     {

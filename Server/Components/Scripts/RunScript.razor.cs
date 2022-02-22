@@ -1,21 +1,21 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Hubs;
-using Remotely.Server.Migrations.PostgreSql;
-using Remotely.Server.Migrations.Sqlite;
-using Remotely.Server.Migrations.SqlServer;
-using Remotely.Server.Pages;
-using Remotely.Server.Services;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using URemote.Server.Hubs;
+using URemote.Server.Migrations.PostgreSql;
+using URemote.Server.Migrations.Sqlite;
+using URemote.Server.Migrations.SqlServer;
+using URemote.Server.Pages;
+using URemote.Server.Services;
+using URemote.Shared.Enums;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Components.Scripts
+namespace URemote.Server.Components.Scripts
 {
     [Authorize]
     public partial class RunScript : AuthComponentBase

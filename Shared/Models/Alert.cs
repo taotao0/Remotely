@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class Alert
     {
@@ -23,7 +23,7 @@ namespace Remotely.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public RemotelyUser User { get; set; }
+        public RemoteUser User { get; set; }
         public string UserID { get; set; }
         public string Details { get; set; }
     }

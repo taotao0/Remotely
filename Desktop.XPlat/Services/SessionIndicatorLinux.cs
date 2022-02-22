@@ -1,9 +1,9 @@
 ﻿using Avalonia.Controls;
 using Avalonia.Threading;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.XPlat.Views;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.XPlat.Views;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace URemote.Desktop.XPlat.Services
 {
     public class SessionIndicatorLinux : ISessionIndicator
     {

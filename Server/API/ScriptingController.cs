@@ -1,19 +1,19 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Hubs;
-using Remotely.Server.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using URemote.Server.Hubs;
+using URemote.Server.Services;
+using URemote.Shared.Utilities;
+using URemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
-using Remotely.Shared.Enums;
-using Remotely.Server.Auth;
+using URemote.Shared.Enums;
+using URemote.Server.Auth;
 
-namespace Remotely.Server.API
+namespace URemote.Server.API
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -25,9 +25,9 @@ namespace Remotely.Server.API
 
         private readonly IExpiringTokenService _expiringTokenService;
 
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<RemoteUser> _userManager;
 
-        public ScriptingController(UserManager<RemotelyUser> userManager,
+        public ScriptingController(UserManager<RemoteUser> userManager,
                                             IDataService dataService,
             IExpiringTokenService expiringTokenService,
             IHubContext<AgentHub> agentHub)

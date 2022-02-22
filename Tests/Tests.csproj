@@ -5,11 +5,19 @@
 
     <IsPackable>false</IsPackable>
 
-    <RootNamespace>Remotely.Tests</RootNamespace>
+    <RootNamespace>URemote.Tests</RootNamespace>
 
-    <AssemblyName>Remotely_Tests</AssemblyName>
+    <AssemblyName>URemote_Tests</AssemblyName>
 
     <Platforms>AnyCPU;x64;x86</Platforms>
+
+    <Authors>kjb</Authors>
+
+    <Company>Uclick</Company>
+
+    <Copyright>Copyright ©  2022 Uclick</Copyright>
+
+    <PackageProjectUrl>http://www.uclick.co.kr/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

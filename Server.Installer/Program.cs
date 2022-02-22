@@ -1,8 +1,8 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
+using URemote.Shared.Enums;
+using URemote.Shared.Services;
+using URemote.Shared.Utilities;
 using Server.Installer.Models;
 using Server.Installer.Services;
 using System;
@@ -19,9 +19,9 @@ namespace Server.Installer
         public static async Task Main(string[] args)
         {
             Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine(AppConstants.RemotelyAscii);
+            Console.WriteLine(AppConstants.URemoteAscii);
             Console.ForegroundColor = ConsoleColor.Gray;
-            Console.WriteLine("(https://remotely.one)");
+            Console.WriteLine("(https://remote.cookmung.com)");
             Console.WriteLine();
             Console.WriteLine();
 
@@ -35,7 +35,7 @@ namespace Server.Installer
             if (EnvironmentHelper.Platform != Platform.Windows &&
                 EnvironmentHelper.Platform != Platform.Linux)
             {
-                ConsoleHelper.WriteError("Remotely Server can only be installed on Linux or Windows.");
+                ConsoleHelper.WriteError("URemote Server can only be installed on Linux or Windows.");
                 return;
             }
 
@@ -52,8 +52,8 @@ namespace Server.Installer
                 return;
             }
 
-            ConsoleHelper.WriteLine("Thank you for trying Remotely!  This installer will guide you " +
-                "through deploying the Remotely server onto this machine.");
+            ConsoleHelper.WriteLine("Thank you for trying URemote!  This installer will guide you " +
+                "through deploying the URemote server onto this machine.");
 
             ConsoleHelper.WriteLine("There are two ways to create the server files.  You can download the pre-built package " +
                 "from the latest public release, or you can use your GitHub credentials to build a customized package through " +
@@ -61,13 +61,13 @@ namespace Server.Installer
                 "desktop clients, and end users will need to type it in manually.");
 
             ConsoleHelper.WriteLine("If using GitHub Actions, you will need to enter a GitHub Personal Access Token, " +
-                "which will allow this app to access your fork of the Remotely repo.  You can generate a PAT at " +
+                "which will allow this app to access your fork of the URemote repo.  You can generate a PAT at " +
                 "https://github.com/settings/tokens.  You need to give it the \"repo\" scope.");
 
             ConsoleHelper.WriteLine("Be sure to retain your GitHub Personal Access Token if you want to re-use it " +
                 "for upgrading in the future.  The installer does not save it locally.");
 
-            ConsoleHelper.WriteLine("If you haven't already, please go to the Actions tab in your Remotely repo " +
+            ConsoleHelper.WriteLine("If you haven't already, please go to the Actions tab in your URemote repo " +
                 "and enable them.  If not, this process will fail.");
 
 
@@ -84,12 +84,12 @@ namespace Server.Installer
 
             while (string.IsNullOrWhiteSpace(cliParams.InstallDirectory))
             {
-                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Which directory should the server files be extracted to (e.g. /var/www/remotely/)?").Trim();
+                cliParams.InstallDirectory = ConsoleHelper.ReadLine("Which directory should the server files be extracted to (e.g. /var/www/uremote/)?").Trim();
             }
 
             while (cliParams.ServerUrl is null)
             {
-                var url = ConsoleHelper.ReadLine("What is your server's public URL (e.g. https://app.remotely.one)?").Trim();
+                var url = ConsoleHelper.ReadLine("What is your server's public URL (e.g. https://remote.cookmung.com)?").Trim();
                 if (Uri.TryCreate(url, UriKind.Absolute, out var serverUrl))
                 {
                     cliParams.ServerUrl = serverUrl;
@@ -270,7 +270,7 @@ namespace Server.Installer
                                     cliParams.ServerUrl = result;
                                     continue;
                                 }
-                                ConsoleHelper.WriteError("--server-url parameter is invalid.  Must be a valid URL (e.g. https://app.remotely.one).");
+                                ConsoleHelper.WriteError("--server-url parameter is invalid.  Must be a valid URL (e.g. https://remote.cookmung.com).");
                                 return false;
                             }
                         case "--install-directory":
@@ -316,8 +316,8 @@ namespace Server.Installer
 
         private static void ShowHelpText()
         {
-            ConsoleHelper.WriteLine("Remotely Server Installer", 0, ConsoleColor.Cyan);
-            ConsoleHelper.WriteLine("Builds a customized Remotely server using GitHub actions " +
+            ConsoleHelper.WriteLine("URemote Server Installer", 0, ConsoleColor.Cyan);
+            ConsoleHelper.WriteLine("Builds a customized URemote server using GitHub actions " +
                 "and installs the server on the local machine.", 1);
 
             ConsoleHelper.WriteLine("Usage:");
@@ -328,14 +328,14 @@ namespace Server.Installer
                 "latest public release, or to create a customized package through GitHub Actions.  The pre-built package " +
                 "will not contain your server's URL in the desktop clients, and end users will need to type it in manually.", 1);
 
-            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked Remotely repo exists.", 1);
+            ConsoleHelper.WriteLine("\t--github-username, -u    Your GitHub username, where the forked URemote repo exists.", 1);
             
             ConsoleHelper.WriteLine("\t--github-pat, -p    The GitHub Personal Access Token to use for authentication.  " +
                 "Create one at ttps://github.com/settings/tokens.", 1);
 
-            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your Remotely server will be accessed (e.g. https://app.remotely.one).", 1);
+            ConsoleHelper.WriteLine("\t--server-url, -s    The public URL where your URemote server will be accessed (e.g. https://remote.cookmung.com).", 1);
 
-            ConsoleHelper.WriteLine("\t--install-directory, -i    The directory path where the server files will be installed (e.g. /var/www/remotely/).", 1);
+            ConsoleHelper.WriteLine("\t--install-directory, -i    The directory path where the server files will be installed (e.g. /var/www/uremote/).", 1);
             
             ConsoleHelper.WriteLine("Enter the GitHub branch or tag name from which to build.  For example, you can enter " +
                   " \"master\" to build the latest changes from the default branch.  Or you can enter a release tag like \"v2021.04.13.1604\".", 1);
@@ -347,14 +347,14 @@ namespace Server.Installer
             ConsoleHelper.WriteLine("\t--create-new, -c    (true/false or yes/no)  Whether to run a new build.  If false, the latest existing build artifact will be used.", 1);
             
             ConsoleHelper.WriteLine("\t--web-server, -w    Number.  The web server that will be used as a reverse proxy to forward " +
-                "requests to the Remotely server.  Select the appropriate option for your operating system and web server.  " +
+                "requests to the URemote server.  Select the appropriate option for your operating system and web server.  " +
                 "0 = Caddy on Ubuntu.  1 = Nginx on Ubuntu.  2 = Caddy on CentOS.  3 = Nginx on CentOS.  4 = IIS on Windows Server 2016+.", 1);
 
             ConsoleHelper.WriteLine("Example (build latest release):");
-            ConsoleHelper.WriteLine("sudo ./Remotely_Server_Installer -b false -u lucent-sea -p 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 -s https://app.remotely.one -i /var/www/remotely/ -r latest -c true -w 0", 1);
+            ConsoleHelper.WriteLine("sudo ./URemote_Server_Installer -b false -u lucent-sea -p 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 -s https://remote.cookmung.com -i /var/www/uremote/ -r latest -c true -w 0", 1);
 
             ConsoleHelper.WriteLine("Example (use pre-built package):");
-            ConsoleHelper.WriteLine("sudo ./Remotely_Server_Installer -b true -s https://app.remotely.one -i /var/www/remotely/ -w 0");
+            ConsoleHelper.WriteLine("sudo ./URemote_Server_Installer -b true -s https://remote.cookmung.com -i /var/www/uremote/ -w 0");
         }
     }
 }

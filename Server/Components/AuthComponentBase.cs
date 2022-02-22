@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Identity;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using URemote.Server.Services;
+using URemote.Shared.Models;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Components
+namespace URemote.Server.Components
 {
     public class AuthComponentBase : ComponentBase
     {
@@ -19,7 +19,7 @@ namespace Remotely.Server.Components
 
         public bool IsAuthenticated { get; private set; }
 
-        public RemotelyUser User { get; private set; }
+        public RemoteUser User { get; private set; }
 
         public string Username { get; private set; }
 

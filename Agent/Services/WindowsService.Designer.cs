@@ -1,4 +1,4 @@
-﻿namespace Remotely.Agent.Services
+﻿namespace URemote.Agent.Services
 {
     partial class WindowsService
     {

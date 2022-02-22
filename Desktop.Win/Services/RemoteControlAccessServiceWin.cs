@@ -1,12 +1,12 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Win.ViewModels;
-using Remotely.Desktop.Win.Views;
+﻿using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Win.ViewModels;
+using URemote.Desktop.Win.Views;
 using System;
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Win.Services
+namespace URemote.Desktop.Win.Services
 {
     public class RemoteControlAccessServiceWin : IRemoteControlAccessService
     {

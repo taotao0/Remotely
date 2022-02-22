@@ -4,11 +4,11 @@ using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Server.Components;
-using Remotely.Server.Components.ModalContents;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.ViewModels;
+using URemote.Server.Components;
+using URemote.Server.Components.ModalContents;
+using URemote.Server.Services;
+using URemote.Shared.Models;
+using URemote.Shared.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,13 +16,13 @@ using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Pages
+namespace URemote.Server.Pages
 {
     public partial class ManageOrganization : AuthComponentBase
     {
         private readonly List<DeviceGroup> _deviceGroups = new();
         private readonly List<InviteLink> _invites = new();
-        private readonly List<RemotelyUser> _orgUsers = new();
+        private readonly List<RemoteUser> _orgUsers = new();
         private bool _inviteAsAdmin;
         private string _inviteEmail;
         private string _newDeviceGroupName;
@@ -47,7 +47,7 @@ namespace Remotely.Server.Pages
         [Inject]
         private IToastService ToastService { get; set; }
         [Inject]
-        private UserManager<RemotelyUser> UserManager { get; set; }
+        private UserManager<RemoteUser> UserManager { get; set; }
 
 
         protected override async Task OnInitializedAsync()
@@ -139,7 +139,7 @@ namespace Remotely.Server.Pages
             _selectedDeviceGroupId = string.Empty;
         }
 
-        private async Task DeleteUser(RemotelyUser user)
+        private async Task DeleteUser(RemoteUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -163,7 +163,7 @@ namespace Remotely.Server.Pages
             ToastService.ShowToast("User deleted.");
         }
 
-        private async Task EditDeviceGroups(RemotelyUser user)
+        private async Task EditDeviceGroups(RemoteUser user)
         {
             void editDeviceGroupsModal(RenderTreeBuilder builder)
             {
@@ -230,7 +230,7 @@ namespace Remotely.Server.Pages
             var orgUsers = await DataService.GetAllUsersInOrganization(User.OrganizationID);
             _orgUsers.AddRange(orgUsers.OrderBy(x => x.UserName));
         }
-        private async Task ResetPassword(RemotelyUser user)
+        private async Task ResetPassword(RemoteUser user)
         {
             if (!User.IsAdministrator)
             {
@@ -289,12 +289,12 @@ namespace Remotely.Server.Pages
                 var newInvite = DataService.AddInvite(User.OrganizationID, invite);
 
                 var inviteURL = $"{NavManager.BaseUri}Invite?id={newInvite.ID}";
-                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Invitation to Organization in Remotely",
-                        $@"<img src='{NavManager.BaseUri}images/Remotely_Logo.png'/>
+                var emailResult = await EmailSender.SendEmailAsync(invite.InvitedUser, "Invitation to Organization in URemote",
+                        $@"<img src='{NavManager.BaseUri}images/URemote_Logo.png'/>
                             <br><br>
                             Hello!
                             <br><br>
-                            You've been invited to join an organization in Remotely.
+                            You've been invited to join an organization in URemote.
                             <br><br>
                             You can join the organization by <a href='{HtmlEncoder.Default.Encode(inviteURL)}'>clicking here</a>.",
                         User.OrganizationID);
@@ -313,7 +313,7 @@ namespace Remotely.Server.Pages
             }
         }
 
-        private void SetUserIsAdmin(ChangeEventArgs args, RemotelyUser orgUser)
+        private void SetUserIsAdmin(ChangeEventArgs args, RemoteUser orgUser)
         {
             if (!User.IsAdministrator)
             {

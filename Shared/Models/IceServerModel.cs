@@ -1,4 +1,4 @@
-﻿namespace Remotely.Shared.Models
+﻿namespace URemote.Shared.Models
 {
     public class IceServerModel
     {

@@ -1,8 +1,8 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Desktop.Win.Services;
-using Remotely.Shared.Win32;
+﻿using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Desktop.Core.ViewModels;
+using URemote.Desktop.Win.Services;
+using URemote.Shared.Win32;
 using System;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace URemote.Desktop.Win.ViewModels
 {
     public class FileTransferWindowViewModel : BrandedViewModelBase
     {
@@ -45,7 +45,7 @@ namespace Remotely.Desktop.Win.ViewModels
 
             var ofd = new OpenFileDialog()
             {
-                Title = "Upload File via Remotely",
+                Title = "Upload File via URemote",
                 Multiselect = true,
                 CheckFileExists = true,
                 InitialDirectory = Directory.Exists(userDir) ? userDir : rootDir

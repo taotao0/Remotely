@@ -5,12 +5,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Remotely Installer")]
-[assembly: AssemblyDescription("An installer for the Remotely service, which provides unattended remote access and remote scripting.")]
+[assembly: AssemblyTitle("URemote Installer")]
+[assembly: AssemblyDescription("An installer for the URemote service, which provides unattended remote access and remote scripting.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Translucency Software")]
-[assembly: AssemblyProduct("Remotely Installer")]
-[assembly: AssemblyCopyright("Copyright ©  2020 Translucency Software")]
+[assembly: AssemblyCompany("Uclick")]
+[assembly: AssemblyProduct("URemote Installer")]
+[assembly: AssemblyCopyright("Copyright ©  2022 Uclick")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

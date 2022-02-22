@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.Sqlite
+namespace URemote.Server.Migrations.Sqlite
 {
     public partial class Initial : Migration
     {
@@ -166,7 +166,7 @@ namespace Remotely.Server.Migrations.Sqlite
                 });
 
             migrationBuilder.CreateTable(
-                name: "RemotelyUsers",
+                name: "RemoteUsers",
                 columns: table => new
                 {
                     Id = table.Column<string>(nullable: false),
@@ -191,9 +191,9 @@ namespace Remotely.Server.Migrations.Sqlite
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RemotelyUsers", x => x.Id);
+                    table.PrimaryKey("PK_RemoteUsers", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_RemotelyUsers_Organizations_OrganizationID",
+                        name: "FK_RemoteUsers_Organizations_OrganizationID",
                         column: x => x.OrganizationID,
                         principalTable: "Organizations",
                         principalColumn: "ID",
@@ -280,9 +280,9 @@ namespace Remotely.Server.Migrations.Sqlite
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUserClaims_RemotelyUsers_UserId",
+                        name: "FK_AspNetUserClaims_RemoteUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -300,9 +300,9 @@ namespace Remotely.Server.Migrations.Sqlite
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AspNetUserLogins_RemotelyUsers_UserId",
+                        name: "FK_AspNetUserLogins_RemoteUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -324,9 +324,9 @@ namespace Remotely.Server.Migrations.Sqlite
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_RemotelyUsers_UserId",
+                        name: "FK_AspNetUserRoles_RemoteUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -344,9 +344,9 @@ namespace Remotely.Server.Migrations.Sqlite
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AspNetUserTokens_RemotelyUsers_UserId",
+                        name: "FK_AspNetUserTokens_RemoteUsers_UserId",
                         column: x => x.UserId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -369,9 +369,9 @@ namespace Remotely.Server.Migrations.Sqlite
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_PermissionLinks_RemotelyUsers_UserID",
+                        name: "FK_PermissionLinks_RemoteUsers_UserID",
                         column: x => x.UserID,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -459,23 +459,23 @@ namespace Remotely.Server.Migrations.Sqlite
 
             migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "RemotelyUsers",
+                table: "RemoteUsers",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "RemotelyUsers",
+                table: "RemoteUsers",
                 column: "NormalizedUserName",
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_RemotelyUsers_OrganizationID",
-                table: "RemotelyUsers",
+                name: "IX_RemoteUsers_OrganizationID",
+                table: "RemoteUsers",
                 column: "OrganizationID");
 
             migrationBuilder.CreateIndex(
-                name: "IX_RemotelyUsers_UserName",
-                table: "RemotelyUsers",
+                name: "IX_RemoteUsers_UserName",
+                table: "RemoteUsers",
                 column: "UserName");
 
             migrationBuilder.CreateIndex(
@@ -529,7 +529,7 @@ namespace Remotely.Server.Migrations.Sqlite
                 name: "DeviceGroups");
 
             migrationBuilder.DropTable(
-                name: "RemotelyUsers");
+                name: "RemoteUsers");
 
             migrationBuilder.DropTable(
                 name: "Organizations");

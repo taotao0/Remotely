@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using URemote.Shared.Enums;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Linq;
@@ -11,7 +11,7 @@ using System.Net.Http.Json;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     public class ScriptExecutor
     {

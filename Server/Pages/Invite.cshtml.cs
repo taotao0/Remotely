@@ -1,9 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Remotely.Server.Services;
+using URemote.Server.Services;
 
-namespace Remotely.Server.Pages
+namespace URemote.Server.Pages
 {
     [Authorize]
     public class InviteModel : PageModel

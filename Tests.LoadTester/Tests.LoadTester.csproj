@@ -3,8 +3,12 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0-windows</TargetFramework>
-    <AssemblyName>Remotely.Tests.LoadTester</AssemblyName>
-    <RootNamespace>Remotely.Tests.LoadTester</RootNamespace>
+    <AssemblyName>URemote.Tests.LoadTester</AssemblyName>
+    <RootNamespace>URemote.Tests.LoadTester</RootNamespace>
+    <Company>Uclick</Company>
+    <Authors>kjb</Authors>
+    <Copyright>Copyright ©  2022 Uclick</Copyright>
+    <PackageProjectUrl>http://www.uclick.co.kr/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

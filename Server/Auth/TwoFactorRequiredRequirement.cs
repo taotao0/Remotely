@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Auth
+namespace URemote.Server.Auth
 {
     public class TwoFactorRequiredRequirement : IAuthorizationRequirement
     {

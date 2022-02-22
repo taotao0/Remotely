@@ -1,5 +1,5 @@
 ﻿using Microsoft.Win32.SafeHandles;
-using Remotely.Shared.Win32;
+using URemote.Shared.Win32;
 using System;
 using System.Runtime.ConstrainedExecution;
 using System.Runtime.InteropServices;
@@ -30,7 +30,7 @@ public static class SECUR32
     // SECURITY_LOGON_TYPE
     public enum SecurityLogonType
     {
-        Interactive = 2,    // Interactively logged on (locally or remotely)
+        Interactive = 2,    // Interactively logged on (locally or uremote)
         Network,        // Accessing system via network
         Batch,          // Started via a batch queue
         Service,        // Service started by service controller

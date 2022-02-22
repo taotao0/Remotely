@@ -1,14 +1,14 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Win.Services;
-using Remotely.Desktop.Win.Views;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using URemote.Desktop.Core;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Desktop.Win.Services;
+using URemote.Desktop.Win.Views;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
+using URemote.Shared.Win32;
 using System;
 using System.Linq;
 using System.Net.Http;
@@ -18,14 +18,30 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Windows;
 using Form = System.Windows.Forms.Form;
+using Microsoft.Extensions.Hosting;
+using Serilog;
+using System.Security.Principal;
+using System.Diagnostics;
+using URemote.Desktop.Core.Utilities;
+using System.ServiceProcess;
 
-namespace Remotely.Desktop.Win
+namespace URemote.Desktop.Win
 {
     /// <summary>
     /// Interaction logic for App.xaml
     /// </summary>
     public partial class App : Application
     {
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .UseWindowsService()
+                .ConfigureServices((hostContext, services) =>
+                {
+                    services.AddHostedService<CtrlAltDelWorkService>();
+                }).UseSerilog();
+
+
+
         public Form BackgroundForm { get; private set; }
         private ICasterSocket _casterSocket { get; set; }
         private Conductor _conductor { get; set; }
@@ -135,6 +151,21 @@ namespace Remotely.Desktop.Win
                 _casterSocket = Services.GetRequiredService<ICasterSocket>();
                 _conductor.ProcessArgs(args);
 
+                if (_conductor.Mode == Core.Enums.AppMode.CtrlAltDel)
+                {
+                    CreateHostBuilder(args).Build().Run();
+                    return;
+                }
+                else
+                {
+                    AdminRelauncher();
+
+                    CtrlAltDelWorkServiceStart();
+                }
+            
+
+
+
                 SystemEvents.SessionEnding += async (s, e) =>
                 {
                     if (e.Reason == SessionEndReasons.SystemShutdown)
@@ -183,6 +214,80 @@ namespace Remotely.Desktop.Win
                 Logger.Write(ex);
                 throw;
             }
+        }
+
+        private void AdminRelauncher()
+        {
+            if (!IsRunAsAdmin())
+            {
+                ProcessStartInfo proc = new ProcessStartInfo();
+                proc.UseShellExecute = true;
+                proc.WorkingDirectory = Environment.CurrentDirectory;
+                proc.FileName = System.Windows.Forms.Application.ExecutablePath;
+
+                proc.Verb = "runas";
+
+                try
+                {
+                    Process.Start(proc);
+                    Environment.Exit(0);
+                }
+                catch (Exception ex)
+                {
+                    Logger.Write("This program must be run as an administrator! \n\n" + ex.ToString());
+                }
+            }
+        }
+
+        private bool IsRunAsAdmin()
+        {
+            try
+            {
+                WindowsIdentity id = WindowsIdentity.GetCurrent();
+                WindowsPrincipal principal = new WindowsPrincipal(id);
+                return principal.IsInRole(WindowsBuiltInRole.Administrator);
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+        private void CtrlAltDelWorkServiceStart()
+        {
+            string ServiceName = "URemote_Desktop_Support_Service";
+            try
+            {
+                Process p = ProcessEx.StartHidden("cmd.exe", "/c sc.exe create " + ServiceName + " binpath= \"" + System.Windows.Forms.Application.ExecutablePath + " -mode 99\" start= auto");
+                p.WaitForExit();
+
+                var serv = ServiceController.GetServices().FirstOrDefault(ser => ser.ServiceName == ServiceName);
+                if (serv != null)
+                {
+                    if (serv.Status != ServiceControllerStatus.Running)
+                    {
+                        serv.Start();
+                        serv.WaitForStatus(ServiceControllerStatus.Running);
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Logger.Write("CtrlAltDelWorkServiceStart ex : " + ex);
+            }
+        }
+        private void CtrlAltDelWorkServiceEnd()
+        {
+            string ServiceName = "URemote_Desktop_Support_Service";
+
+            var remotelyService = ServiceController.GetServices().FirstOrDefault(x => x.ServiceName == ServiceName);
+            if (remotelyService != null)
+            {
+                remotelyService.Stop();
+                remotelyService.WaitForStatus(ServiceControllerStatus.Stopped);
+            }
+
+            ProcessEx.StartHidden("cmd.exe", "/c sc delete " + ServiceName + " & taskkill /f /fi \"SERVICES eq " + ServiceName + "\" ").WaitForExit();
         }
 
         private async Task SendReadyNotificationToViewers()
@@ -251,6 +356,8 @@ namespace Remotely.Desktop.Win
             {
                 Exit += (s, a) =>
                 {
+                    CtrlAltDelWorkServiceEnd();
+
                     appExitEvent.Set();
                 };
             });

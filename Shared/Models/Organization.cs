@@ -1,10 +1,10 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class Organization
     {
@@ -40,7 +40,7 @@ namespace Remotely.Shared.Models
 
         public string RelayCode { get; set; }
 
-        public ICollection<RemotelyUser> RemotelyUsers { get; set; }
+        public ICollection<RemoteUser> RemoteUsers { get; set; }
         public ICollection<SharedFile> SharedFiles { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows;
 
-namespace Remotely.Agent.Installer.Win.Utilities
+namespace URemote.Agent.Installer.Win.Utilities
 {
     public class CommandLineParser
     {

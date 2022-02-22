@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class DeviceGroup
     {
@@ -24,7 +24,7 @@ namespace Remotely.Shared.Models
         public string OrganizationID { get; set; }
 
         [JsonIgnore]
-        public List<RemotelyUser> Users { get; set; }
+        public List<RemoteUser> Users { get; set; }
 
         [JsonIgnore]
         public List<ScriptSchedule> ScriptSchedules { get; set; }

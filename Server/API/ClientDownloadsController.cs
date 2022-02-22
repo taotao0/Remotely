@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
+using URemote.Server.Auth;
+using URemote.Server.Services;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.API
+namespace URemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -47,12 +47,12 @@ namespace Remotely.Server.API
                     }
                 case "UbuntuDesktop":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "URemote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "URemote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-arm64":
@@ -63,7 +63,7 @@ namespace Remotely.Server.API
 
 
 
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "URemote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 default:
@@ -89,17 +89,17 @@ namespace Remotely.Server.API
                     }
                 case "UbuntuDesktop":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Linux-x64", "URemote_Desktop");
                         return await GetDesktopFile(filePath, organizationId);
                     }
                 case "MacOS-x64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-x64", "URemote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 case "MacOS-arm64":
                     {
-                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "Remotely_Desktop");
+                        var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "MacOS-arm64", "URemote_Desktop");
                         return await GetDesktopFile(filePath);
                     }
                 default:
@@ -176,11 +176,11 @@ namespace Remotely.Server.API
                     {
                         case "WindowsInstaller":
                             {
-                                var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "Remotely_Installer.exe");
+                                var filePath = Path.Combine(_hostEnv.WebRootPath, "Content", "URemote_Installer.exe");
                                 var fs = new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.Read);
                                 var organization = _dataService.GetOrganizationById(organizationId);
                                 var relayCode = organization.RelayCode;
-                                return File(fs, "application/octet-stream", $"Remotely_Install-[{relayCode}].exe");
+                                return File(fs, "application/octet-stream", $"URemote_Install-[{relayCode}].exe");
                             }
                         // TODO: Remove after a few releases.
                         case "Manjaro-x64":

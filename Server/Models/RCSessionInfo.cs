@@ -1,8 +1,8 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System;
 using System.Collections.Concurrent;
 
-namespace Remotely.Server.Models
+namespace URemote.Server.Models
 {
     public class RCSessionInfo
     {

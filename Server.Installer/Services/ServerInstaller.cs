@@ -1,4 +1,4 @@
-﻿using Remotely.Shared.Utilities;
+﻿using URemote.Shared.Utilities;
 using Server.Installer.Models;
 using System;
 using System.Collections.Generic;
@@ -103,8 +103,8 @@ namespace Server.Installer.Services
                 var w3wpProcs = Process.GetProcessesByName("w3wp");
                 if (w3wpProcs.Length > 0)
                 {
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name Remotely -ErrorAction SilentlyContinue }\"").WaitForExit();
-                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name Remotely -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-WebAppPool -Name URemote -ErrorAction SilentlyContinue }\"").WaitForExit();
+                    Process.Start("powershell.exe", "-Command & \"{ Stop-Website -Name URemote -ErrorAction SilentlyContinue }\"").WaitForExit();
 
                     ConsoleHelper.WriteLine("Waiting for w3wp processes to close...");
                     foreach (var proc in w3wpProcs)
@@ -127,7 +127,7 @@ namespace Server.Installer.Services
         private async Task LaunchExternalInstaller(CliParams cliParams)
         {
             ConsoleHelper.WriteLine("Launching install script for selected reverse proxy type.");
-            var resourcesPath = "Remotely.Server.Installer.Resources.";
+            var resourcesPath = "URemote.Server.Installer.Resources.";
 
             var fileName = cliParams.WebServer.Value switch
             {

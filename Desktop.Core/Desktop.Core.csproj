@@ -2,9 +2,13 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Remotely.Desktop.Core</RootNamespace>
-    <AssemblyName>Remotely_Desktop.Core</AssemblyName>
+    <RootNamespace>URemote.Desktop.Core</RootNamespace>
+    <AssemblyName>URemote_Desktop.Core</AssemblyName>
     <Platforms>AnyCPU;x64;x86</Platforms>
+    <Authors>kjb</Authors>
+    <Company>Uclick</Company>
+    <Copyright>Copyright ©  2022 Uclick</Copyright>
+    <PackageProjectUrl>http://www.uclick.co.kr/</PackageProjectUrl>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

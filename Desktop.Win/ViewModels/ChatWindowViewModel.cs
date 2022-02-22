@@ -1,10 +1,10 @@
-﻿using Remotely.Shared.Models;
+﻿using URemote.Shared.Models;
 using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Win.ViewModels
+namespace URemote.Desktop.Win.ViewModels
 {
     public class ChatWindowViewModel : BrandedViewModelBase
     {

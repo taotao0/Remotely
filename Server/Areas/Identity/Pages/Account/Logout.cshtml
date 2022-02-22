@@ -1,9 +1,9 @@
 ﻿@page
 @using Microsoft.AspNetCore.Identity
 @using Microsoft.AspNetCore.SignalR
-@using Remotely.Server.Hubs
+@using URemote.Server.Hubs
 @attribute [IgnoreAntiforgeryToken]
-@inject SignInManager<RemotelyUser> SignInManager
+@inject SignInManager<RemoteUser> SignInManager
 @inject IHubContext<CasterHub> CasterHubContext
 @inject IHubContext<ViewerHub> ViewerHubContext
 @functions {

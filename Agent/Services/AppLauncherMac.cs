@@ -1,9 +1,9 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Agent.Interfaces;
+using URemote.Agent.Interfaces;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     public class AppLauncherMac : IAppLauncher
     {

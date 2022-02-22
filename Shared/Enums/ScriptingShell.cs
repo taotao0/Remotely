@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Enums
+namespace URemote.Shared.Enums
 {
     public enum ScriptingShell
     {

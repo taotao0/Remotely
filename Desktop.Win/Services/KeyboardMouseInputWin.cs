@@ -1,8 +1,8 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+﻿using URemote.Desktop.Core.Enums;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Shared.Utilities;
+using URemote.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -10,9 +10,9 @@ using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Remotely.Shared.Win32.User32;
+using static URemote.Shared.Win32.User32;
 
-namespace Remotely.Desktop.Win.Services
+namespace URemote.Desktop.Win.Services
 {
     public class KeyboardMouseInputWin : IKeyboardMouseInput
     {
@@ -156,30 +156,9 @@ namespace Remotely.Desktop.Win.Services
             });
         }
 
-        public void SendCtrlAltDel(string key)
+        public void SendCtrlAltDel()
         {
-            TryOnInputDesktop(() =>
-            {
-                if (!ConvertJavaScriptKeyToVirtualKey(key, out var keyCode) || keyCode is null)
-                {
-                    return;
-                }
-
-                var union = new InputUnion()
-                {
-                    ki = new KEYBDINPUT()
-                    {
-                        wVk = keyCode.Value,
-                        wScan = (ScanCodeShort)MapVirtualKeyEx((uint)keyCode.Value, VkMapType.MAPVK_VK_TO_VSC, GetKeyboardLayout()),
-                        time = 0,
-                        dwFlags = KEYEVENTF.KEYUP,
-                        dwExtraInfo = GetMessageExtraInfo()
-                    }
-                };
-                var input = new INPUT() { type = InputType.KEYBOARD, U = union };
-
-                SendInput(1, new INPUT[] { input }, INPUT.Size);
-            });
+            CtrlAltDelConfigService.CreateFile();
         }
 
         public void SendMouseButtonAction(int button, ButtonAction buttonAction, double percentX, double percentY, Viewer viewer)

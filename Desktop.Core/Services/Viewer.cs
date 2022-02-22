@@ -1,10 +1,10 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Models;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
-using Remotely.Shared.Models.RemoteControlDtos;
-using Remotely.Shared.Win32;
+﻿using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Models;
+using URemote.Desktop.Core.ViewModels;
+using URemote.Shared.Utilities;
+using URemote.Shared.Models;
+using URemote.Shared.Models.RemoteControlDtos;
+using URemote.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Drawing.Imaging;
@@ -17,7 +17,7 @@ using System.Diagnostics;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace Remotely.Desktop.Core.Services
+namespace URemote.Desktop.Core.Services
 {
     public class Viewer : IDisposable
     {
@@ -198,37 +198,7 @@ namespace Remotely.Desktop.Core.Services
 
         public async Task SendCtrlAltDel()
         {
-            byte VK_CTRL = 0x11;
-            byte VK_SHIFT = 0x10;
-            byte VK_ESC = 0x1B;
-
-            User32.SendSAS(false);
-
-            User32.Keybd_event(VK_CTRL, 0, 0x1, UIntPtr.Zero);
-            User32.Keybd_event(VK_SHIFT, 0, 0x1, UIntPtr.Zero);
-            User32.Keybd_event(VK_ESC, 0, 0x1, UIntPtr.Zero);
-
-            Thread.Sleep(100);
-
-            User32.Keybd_event(VK_CTRL, 0, 0x2, UIntPtr.Zero);
-            User32.Keybd_event(VK_SHIFT, 0, 0x2, UIntPtr.Zero);
-            User32.Keybd_event(VK_ESC, 0, 0x2, UIntPtr.Zero);
-            /*
-            private readonly uint KEYDOWN = 0x1;
-            private readonly uint KEYUP = 0x2;
-
-
-            User32.Keybd_event(VK_CTRL, 0, 0x1, 0);
-            User32.Keybd_event(VK_ALT, 0, 0x1, 0);
-            User32.Keybd_event(VK_ESC, 0, 0x1, 0);
-
-            User32.Keybd_event(VK_CTRL, 0, 0x2, 0);
-            User32.Keybd_event(VK_ALT, 0, 0x2, 0);
-            User32.Keybd_event(VK_ESC, 0, 0x2, 0);
-            */
-            //User32.SendSAS(true);
-
-            //await CasterSocket.SendCtrlAltDelToAgent();
+            await CasterSocket.SendCtrlAltDelToAgent();
         }
 
     public async Task SendCursorChange(CursorInfo cursorInfo)

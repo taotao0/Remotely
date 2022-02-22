@@ -1,10 +1,10 @@
-﻿<Window x:Class="Remotely.Agent.Installer.Win.MainWindow"
+﻿<Window x:Class="URemote.Agent.Installer.Win.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:ViewModels="clr-namespace:Remotely.Agent.Installer.Win.ViewModels"
-        xmlns:local="clr-namespace:Remotely.Agent.Installer.Win"
+        xmlns:ViewModels="clr-namespace:URemote.Agent.Installer.Win.ViewModels"
+        xmlns:local="clr-namespace:URemote.Agent.Installer.Win"
         mc:Ignorable="d"
         WindowStyle="None"
         ResizeMode="CanResizeWithGrip"
@@ -12,7 +12,7 @@
         MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Loaded="Window_Loaded"
         WindowStartupLocation="CenterScreen"
-        Title="Remotely Installer" Height="335" Width="500"  Icon="{Binding Icon}">
+        Title="URemote Installer" Height="335" Width="500"  Icon="{Binding Icon}">
     <Window.Resources>
         <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
     </Window.Resources>

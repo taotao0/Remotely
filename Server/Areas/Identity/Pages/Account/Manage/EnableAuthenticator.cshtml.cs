@@ -10,20 +10,20 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using Remotely.Shared.Models;
+using URemote.Shared.Models;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
+namespace URemote.Server.Areas.Identity.Pages.Account.Manage
 {
     public class EnableAuthenticatorModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<RemoteUser> _userManager;
         private readonly ILogger<EnableAuthenticatorModel> _logger;
         private readonly UrlEncoder _urlEncoder;
 
         private const string AuthenticatorUriFormat = "otpauth://totp/{0}:{1}?secret={2}&issuer={0}&digits=6";
 
         public EnableAuthenticatorModel(
-            UserManager<RemotelyUser> userManager,
+            UserManager<RemoteUser> userManager,
             ILogger<EnableAuthenticatorModel> logger,
             UrlEncoder urlEncoder)
         {
@@ -112,7 +112,7 @@ namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
             }
         }
 
-        private async Task LoadSharedKeyAndQrCodeUriAsync(RemotelyUser user)
+        private async Task LoadSharedKeyAndQrCodeUriAsync(RemoteUser user)
         {
             // Load the authenticator key & QR code URI to display on the form
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
@@ -149,7 +149,7 @@ namespace Remotely.Server.Areas.Identity.Pages.Account.Manage
         {
             return string.Format(
                 AuthenticatorUriFormat,
-                _urlEncoder.Encode("Remotely.Server"),
+                _urlEncoder.Encode("URemote.Server"),
                 _urlEncoder.Encode(email),
                 unformattedKey);
         }

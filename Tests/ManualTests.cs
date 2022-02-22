@@ -2,13 +2,13 @@
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using Remotely.Desktop.Core;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.Utilities;
-using Remotely.Desktop.Win.Services;
-using Remotely.Shared.Models;
-using Remotely.Shared.Models.RemoteControlDtos;
+using URemote.Desktop.Core;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Desktop.Core.Utilities;
+using URemote.Desktop.Win.Services;
+using URemote.Shared.Models;
+using URemote.Shared.Models.RemoteControlDtos;
 using System;
 using System.Diagnostics;
 using System.Drawing;
@@ -21,7 +21,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace Remotely.Tests
+namespace URemote.Tests
 {
     [TestClass]
     public class ManualTests
@@ -173,7 +173,7 @@ namespace Remotely.Tests
 
         private Bitmap GetFrame(string frameFileName)
         {
-            using var mrs = Assembly.GetExecutingAssembly().GetManifestResourceStream($"Remotely.Tests.Resources.{frameFileName}.jpg");
+            using var mrs = Assembly.GetExecutingAssembly().GetManifestResourceStream($"URemote.Tests.Resources.{frameFileName}.jpg");
             var resourceImage = (Bitmap)Bitmap.FromStream(mrs);
 
             if (resourceImage.PixelFormat != PixelFormat.Format32bppArgb)

@@ -1,9 +1,9 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
+﻿using URemote.Desktop.Core.Interfaces;
+using URemote.Shared.Models;
 using System;
 using System.Drawing;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace URemote.Desktop.XPlat.Services
 {
     public class CursorIconWatcherLinux : ICursorIconWatcher
     {

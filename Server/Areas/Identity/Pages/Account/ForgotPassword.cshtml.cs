@@ -10,19 +10,19 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Remotely.Shared.Models;
-using Remotely.Server.Services;
+using URemote.Shared.Models;
+using URemote.Server.Services;
 
-namespace Remotely.Server.Areas.Identity.Pages.Account
+namespace URemote.Server.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class ForgotPasswordModel : PageModel
     {
-        private readonly UserManager<RemotelyUser> _userManager;
+        private readonly UserManager<RemoteUser> _userManager;
         private readonly IEmailSenderEx _emailSender;
         private readonly IDataService _dataService;
 
-        public ForgotPasswordModel(UserManager<RemotelyUser> userManager,
+        public ForgotPasswordModel(UserManager<RemoteUser> userManager,
             IEmailSenderEx emailSender,
             IDataService dataService)
         {
@@ -67,7 +67,7 @@ namespace Remotely.Server.Areas.Identity.Pages.Account
                 var emailResult = await _emailSender.SendEmailAsync(
                     Input.Email,
                     "Reset Password",
-                    $"<img src='{Request.Scheme}://{Request.Host}/images/Remotely_Logo.png'/><br><br>Please reset your Remotely password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    $"<img src='{Request.Scheme}://{Request.Host}/images/URemote_Logo.png'/><br><br>Please reset your URemote password by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                 if (!emailResult)
                 {

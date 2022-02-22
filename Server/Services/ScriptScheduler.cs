@@ -1,17 +1,17 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using Remotely.Server.Hubs;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+using URemote.Server.Hubs;
+using URemote.Shared.Enums;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace URemote.Server.Services
 {
     public class ScriptScheduler : IHostedService, IDisposable
     {

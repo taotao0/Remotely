@@ -1,14 +1,14 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class DesktopAppConfig
     {
-        private string _host = "";
+private string _host = "https://remote.cookmung.com";
 
         public string Host
         {

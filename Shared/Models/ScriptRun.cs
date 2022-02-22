@@ -1,4 +1,4 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class ScriptRun
     {

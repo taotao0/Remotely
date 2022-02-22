@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Security.Cryptography;
 
-namespace Remotely.Shared.Utilities
+namespace URemote.Shared.Utilities
 {
     public static class PasswordGenerator
     {

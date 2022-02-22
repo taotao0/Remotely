@@ -1,8 +1,8 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace Remotely.Shared.Models.RemoteControlDtos
+namespace URemote.Shared.Models.RemoteControlDtos
 {
     [DataContract]
     public class WindowsSessionsDto : BaseDto

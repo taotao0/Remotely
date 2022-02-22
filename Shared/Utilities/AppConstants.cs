@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Shared.Utilities
+namespace URemote.Shared.Utilities
 {
     public class AppConstants
     {
-        public const string DefaultProductName = "Remotely";
+        public const string DefaultProductName = "URemote";
         public const string DefaultPublisherName = "Translucency Software";
         public const long MaxUploadFileSize = 100_000_000;
         public const int RelayCodeLength = 4;
         public const double ScriptRunExpirationMinutes = 30;
 
-        public const string RemotelyAscii = @"
+        public const string URemoteAscii = @"
   _____                      _       _       
  |  __ \                    | |     | |      
  | |__) |___ _ __ ___   ___ | |_ ___| |_   _ 

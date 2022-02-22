@@ -1,13 +1,13 @@
-﻿using Remotely.Server.Enums;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models;
-using Remotely.Shared.ViewModels;
+﻿using URemote.Server.Enums;
+using URemote.Shared.Enums;
+using URemote.Shared.Models;
+using URemote.Shared.ViewModels;
 using System.Collections.Concurrent;
 using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace URemote.Server.Services
 {
     public interface IClientAppState : INotifyPropertyChanged, IInvokePropertyChanged
     {

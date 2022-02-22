@@ -1,11 +1,11 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.XPlat.Native.Linux;
-using Remotely.Shared.Utilities;
+﻿using URemote.Desktop.Core.Enums;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Desktop.XPlat.Native.Linux;
+using URemote.Shared.Utilities;
 using System;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace URemote.Desktop.XPlat.Services
 {
     public class KeyboardMouseInputLinux : IKeyboardMouseInput
     {
@@ -16,6 +16,11 @@ namespace Remotely.Desktop.XPlat.Services
             // Nothing to do here.  The Windows implementation needs to start
             // a processing queue to keep all input simulation on the same
             // thread.  Linux doesn't.
+        }
+
+        public void SendCtrlAltDel(string key)
+        {
+            // Not implemented.
         }
 
         public void SendKeyDown(string key)
@@ -164,6 +169,11 @@ namespace Remotely.Desktop.XPlat.Services
                 SendKeyDown(key.ToString());
                 SendKeyUp(key.ToString());
             }
+        }
+
+        public void SendCtrlAltDel()
+        {
+            // Not implemented.
         }
 
         public void SetKeyStatesUp()

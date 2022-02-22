@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace Remotely.Agent.Installer.Win.Utilities
+namespace URemote.Agent.Installer.Win.Utilities
 {
     public static class MessageBoxEx
     {
