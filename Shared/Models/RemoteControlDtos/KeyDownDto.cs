@@ -1,7 +1,7 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System.Runtime.Serialization;
 
-namespace Remotely.Shared.Models.RemoteControlDtos
+namespace URemote.Shared.Models.RemoteControlDtos
 {
     [DataContract]
     public class KeyDownDto : BaseDto

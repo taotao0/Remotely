@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Thanks for trying Remotely!"
+echo "Thanks for trying URemote!"
 echo
 
 Args=( "$@" )
@@ -15,19 +15,19 @@ do
 done
 
 if [ -z "$AppRoot" ]; then
-    read -p "Enter path where the Remotely server files should be installed (typically /var/www/remotely): " AppRoot
+    read -p "Enter path where the URemote server files should be installed (typically /var/www/uremote): " AppRoot
     if [ -z "$AppRoot" ]; then
-        AppRoot="/var/www/remotely"
+        AppRoot="/var/www/uremote"
     fi
 fi
 
 if [ -z "$HostName" ]; then
-    read -p "Enter server host (e.g. remotely.yourdomainname.com): " HostName
+    read -p "Enter server host (e.g. remote.cookmung.com): " HostName
 fi
 
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/URemote_Server"
 
-echo "Using $AppRoot as the Remotely website's content directory."
+echo "Using $AppRoot as the URemote website's content directory."
 
 UbuntuVersion=$(lsb_release -r -s)
 
@@ -52,10 +52,10 @@ apt-get -y install libc6-dev
 apt-get -y install libgdiplus
 
 
-# Set permissions on Remotely files.
+# Set permissions on URemote files.
 setfacl -R -m u:www-data:rwx $AppRoot
 chown -R "$USER":www-data $AppRoot
-chmod +x "$AppRoot/Remotely_Server"
+chmod +x "$AppRoot/URemote_Server"
 
 
 # Install Nginx
@@ -124,9 +124,9 @@ server {
     }
 }"
 
-echo "$nginxConfig" > /etc/nginx/sites-available/remotely
+echo "$nginxConfig" > /etc/nginx/sites-available/uremote
 
-ln -s /etc/nginx/sites-available/remotely /etc/nginx/sites-enabled/remotely
+ln -s /etc/nginx/sites-available/uremote /etc/nginx/sites-enabled/uremote
 
 # Test config.
 nginx -t
@@ -140,15 +140,15 @@ nginx -s reload
 # Create service.
 
 serviceConfig="[Unit]
-Description=Remotely Server
+Description=URemote Server
 
 [Service]
 WorkingDirectory=$AppRoot
-ExecStart=/usr/bin/dotnet $AppRoot/Remotely_Server.dll
+ExecStart=/usr/bin/dotnet $AppRoot/URemote_Server.dll
 Restart=always
 # Restart service after 10 seconds if the dotnet service crashes:
 RestartSec=10
-SyslogIdentifier=remotely
+SyslogIdentifier=uremote
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
@@ -156,13 +156,13 @@ Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
 [Install]
 WantedBy=multi-user.target"
 
-echo "$serviceConfig" > /etc/systemd/system/remotely.service
+echo "$serviceConfig" > /etc/systemd/system/uremote.service
 
 
 # Enable service.
-systemctl enable remotely.service
+systemctl enable uremote.service
 # Start service.
-systemctl restart remotely.service
+systemctl restart uremote.service
 
 
 # Install Certbot and get SSL cert.

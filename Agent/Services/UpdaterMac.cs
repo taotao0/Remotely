@@ -1,5 +1,5 @@
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Utilities;
+using URemote.Agent.Interfaces;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,7 +12,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     public class UpdaterMac : IUpdater
     {
@@ -65,7 +65,7 @@ namespace Remotely.Agent.Services
                 var connectionInfo = _configService.GetConnectionInfo();
                 var serverUrl = _configService.GetConnectionInfo().Host;
 
-                var fileUrl = serverUrl + $"/Content/Remotely-MacOS-{_achitecture}.zip";
+                var fileUrl = serverUrl + $"/Content/URemote-MacOS-{_achitecture}.zip";
 
                 var lastEtag = string.Empty;
 
@@ -124,9 +124,9 @@ namespace Remotely.Agent.Services
                 Logger.Write("Service Updater: Downloading install package.");
 
                 var downloadId = Guid.NewGuid().ToString();
-                var zipPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.zip");
+                var zipPath = Path.Combine(Path.GetTempPath(), "URemoteUpdate.zip");
 
-                var installerPath = Path.Combine(Path.GetTempPath(), "RemotelyUpdate.sh");
+                var installerPath = Path.Combine(Path.GetTempPath(), "URemoteUpdate.sh");
 
                 await _webClientEx.DownloadFileTaskAsync(
                        serverUrl + $"/API/ClientDownloads/{connectionInfo.OrganizationID}/MacOSInstaller-{_achitecture}",

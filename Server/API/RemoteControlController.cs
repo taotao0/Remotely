@@ -1,20 +1,20 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
-using Remotely.Server.Attributes;
-using Remotely.Server.Hubs;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Models;
+using URemote.Server.Attributes;
+using URemote.Server.Hubs;
+using URemote.Server.Models;
+using URemote.Server.Services;
+using URemote.Shared.Utilities;
+using URemote.Shared.Models;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
-using Remotely.Server.Auth;
+using URemote.Server.Auth;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Remotely.Server.API
+namespace URemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -23,7 +23,7 @@ namespace Remotely.Server.API
         public RemoteControlController(IDataService dataService,
             IHubContext<AgentHub> agentHub,
             IApplicationConfig appConfig,
-            SignInManager<RemotelyUser> signInManager)
+            SignInManager<RemoteUser> signInManager)
         {
             DataService = dataService;
             AgentHubContext = agentHub;
@@ -34,7 +34,7 @@ namespace Remotely.Server.API
         public IDataService DataService { get; }
         public IHubContext<AgentHub> AgentHubContext { get; }
         public IApplicationConfig AppConfig { get; }
-        public SignInManager<RemotelyUser> SignInManager { get; }
+        public SignInManager<RemoteUser> SignInManager { get; }
 
         [HttpGet("{deviceID}")]
         [ServiceFilter(typeof(ApiAuthorizationFilter))]

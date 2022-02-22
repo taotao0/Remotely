@@ -1,14 +1,14 @@
-﻿using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Services;
+﻿using URemote.Desktop.Core.Enums;
+using URemote.Desktop.Core.Services;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace URemote.Desktop.Core.Interfaces
 {
     public interface IKeyboardMouseInput
     {
         void Init();
         void SendKeyDown(string key);
         void SendKeyUp(string key);
-        void SendCtrlAltDel(string key);
+        void SendCtrlAltDel();
         void SendMouseMove(double percentX, double percentY, Services.Viewer viewer);
         void SendMouseWheel(int deltaY);
         void SendText(string transferText);

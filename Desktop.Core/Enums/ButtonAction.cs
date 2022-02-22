@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Remotely.Desktop.Core.Enums
+namespace URemote.Desktop.Core.Enums
 {
     public enum ButtonAction
     {

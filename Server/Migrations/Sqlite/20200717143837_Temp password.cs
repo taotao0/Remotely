@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.Sqlite
+namespace URemote.Server.Migrations.Sqlite
 {
     public partial class Temppassword : Migration
     {
@@ -8,7 +8,7 @@ namespace Remotely.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<string>(
                 name: "TempPassword",
-                table: "RemotelyUsers",
+                table: "RemoteUsers",
                 nullable: true);
         }
 
@@ -16,7 +16,7 @@ namespace Remotely.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "TempPassword",
-                table: "RemotelyUsers");
+                table: "RemoteUsers");
         }
     }
 }

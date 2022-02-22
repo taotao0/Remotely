@@ -1,7 +1,7 @@
 ﻿@page
-@using Remotely.Shared.Models
-@inject Remotely.Server.Services.IApplicationConfig AppConfig
-@model Remotely.Server.Pages.RemoteControlModel
+@using URemote.Shared.Models
+@inject URemote.Server.Services.IApplicationConfig AppConfig
+@model URemote.Server.Pages.RemoteControlModel
 @{
     Layout = null;
 }
@@ -13,14 +13,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=0.9, user-scalable=no" />
     <link rel="icon" href="~/favicon.ico" />
-    <title>Remotely Remote Control</title>
+    <title>URemote Control</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="mobile-web-app-capable" content="yes" />
     <link href="~/manifest-rc.json" rel="manifest" />
     <meta name="description" content="Remote support tools designed to get things done quickly." />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link href="~/css/remote-control.css" rel="stylesheet" asp-append-version="true" />
-    @if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+    @if (AppConfig.Theme == URemote.Shared.Enums.Theme.Light)
     {
         <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
     }
@@ -29,14 +29,14 @@
         <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
     }
 
-    @if (Model.RemotelyUser is not null)
+    @if (Model.RemoteUser is not null)
     {
-        switch (Model.RemotelyUser.UserOptions.Theme)
+        switch (Model.RemoteUser.UserOptions.Theme)
         {
-            case Remotely.Shared.Enums.Theme.Light:
+            case URemote.Shared.Enums.Theme.Light:
                 <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
                 break;
-            case Remotely.Shared.Enums.Theme.Dark:
+            case URemote.Shared.Enums.Theme.Dark:
                 <link href="~/css/remote-control-dark.css" rel="stylesheet" asp-append-version="true" />
                 break;
             default:
@@ -45,7 +45,7 @@
     }
     else
     {
-        if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == URemote.Shared.Enums.Theme.Light)
         {
             <link href="~/css/remote-control-light.css" rel="stylesheet" asp-append-version="true" />
         }
@@ -70,9 +70,9 @@
     </environment>
 </head>
 <body>
-    <div class="remotely-header" title="Remotely">
+    <div class="uremote-header" title="URemote">
         <div class="logo-title">
-            Remotely
+            URemote
         </div>
         <div class="logo-subtitle">Support Portal</div>
     </div>
@@ -210,7 +210,7 @@
         <div class="form-block">
             <label>Your Name (shown to client): </label>
             <br />
-            <input id="nameInput" type="text" value="@Model.RemotelyUser?.UserOptions?.DisplayName" />
+            <input id="nameInput" type="text" value="@Model.RemoteUser?.UserOptions?.DisplayName" />
         </div>
         <div class="form-block">
             <label>Session ID: </label>

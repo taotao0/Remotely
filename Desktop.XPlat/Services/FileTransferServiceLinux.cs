@@ -1,11 +1,11 @@
 ﻿using Avalonia.Threading;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
-using Remotely.Desktop.XPlat.Controls;
-using Remotely.Desktop.XPlat.ViewModels;
-using Remotely.Desktop.XPlat.Views;
-using Remotely.Shared.Utilities;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Desktop.Core.Services;
+using URemote.Desktop.Core.ViewModels;
+using URemote.Desktop.XPlat.Controls;
+using URemote.Desktop.XPlat.ViewModels;
+using URemote.Desktop.XPlat.Views;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -13,7 +13,7 @@ using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.XPlat.Services
+namespace URemote.Desktop.XPlat.Services
 {
     public class FileTransferServiceLinux : IFileTransferService
     {
@@ -32,7 +32,7 @@ namespace Remotely.Desktop.XPlat.Services
                 return desktopDir;
             }
 
-            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "Remotely_Shared")).FullName;
+            return Directory.CreateDirectory(Path.Combine(Path.GetTempPath(), "URemote_Shared")).FullName;
         }
 
         public void OpenFileTransferWindow(Viewer viewer)

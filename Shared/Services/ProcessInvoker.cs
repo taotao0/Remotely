@@ -1,8 +1,8 @@
 using System;
 using System.Diagnostics;
-using Remotely.Shared.Utilities;
+using URemote.Shared.Utilities;
 
-namespace Remotely.Shared.Services
+namespace URemote.Shared.Services
 {
     public interface IProcessInvoker
     {

@@ -3,10 +3,14 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>net5.0</TargetFramework>
-    <AssemblyName>Remotely_Server_Installer</AssemblyName>
-    <ApplicationIcon>Remotely_Icon.ico</ApplicationIcon>
-    <RootNamespace>Remotely.Server.Installer</RootNamespace>
+    <AssemblyName>URemote_Server_Installer</AssemblyName>
+    <ApplicationIcon>URemote_Icon.ico</ApplicationIcon>
+    <RootNamespace>URemote.Server.Installer</RootNamespace>
     <ApplicationManifest>app.manifest</ApplicationManifest>
+    <Authors>kjb</Authors>
+    <Company>Uclick</Company>
+    <Copyright>Copyright ©  2022 Uclick</Copyright>
+    <PackageProjectUrl>http://www.uclick.co.kr/</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>

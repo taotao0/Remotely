@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace Remotely.Server.Migrations.Sqlite
+namespace URemote.Server.Migrations.Sqlite
 {
     public partial class DisplayName : Migration
     {
@@ -8,7 +8,7 @@ namespace Remotely.Server.Migrations.Sqlite
         {
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "RemotelyUsers",
+                table: "RemoteUsers",
                 maxLength: 100,
                 nullable: true);
         }
@@ -17,7 +17,7 @@ namespace Remotely.Server.Migrations.Sqlite
         {
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "RemotelyUsers");
+                table: "RemoteUsers");
         }
     }
 }

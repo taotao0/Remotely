@@ -1,7 +1,7 @@
 {
-  "id": "Remotely Remote Control",
-  "name": "Remotely Remote Control",
-  "short_name": "Remotely Remote Control",
+  "id": "URemote Remote Control",
+  "name": "URemote Remote Control",
+  "short_name": "URemote Remote Control",
   "start_url": "./remotecontrol",
   "display": "standalone",
   "background_color": "black",

@@ -1,5 +1,5 @@
-﻿using Remotely.Server.Installer.Models;
-using Remotely.Shared.Utilities;
+﻿using URemote.Server.Installer.Models;
+using URemote.Shared.Utilities;
 using Server.Installer.Models;
 using System;
 using System.Collections.Generic;

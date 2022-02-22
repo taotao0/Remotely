@@ -22,19 +22,19 @@ RUN \
   apt-get -y install aspnetcore-runtime-5.0
 
 RUN \
-  mkdir -p /var/www/remotely && \
+  mkdir -p /var/www/uremote && \
   mkdir /config && \
-  wget -q https://github.com/lucent-sea/Remotely/releases/latest/download/Remotely_Server_Linux-x64.zip && \
-  unzip -o Remotely_Server_Linux-x64.zip -d /var/www/remotely && \
-  rm Remotely_Server_Linux-x64.zip
+  wget -q https://github.com/lucent-sea/URemote/releases/latest/download/URemote_Server_Linux-x64.zip && \
+  unzip -o URemote_Server_Linux-x64.zip -d /var/www/uremote && \
+  rm URemote_Server_Linux-x64.zip
 
 RUN \
-  mkdir -p /remotely-data && \
-  sed -i 's/DataSource=Remotely.db/DataSource=\/remotely-data\/Remotely.db/' /var/www/remotely/appsettings.json
+  mkdir -p /uremote-data && \
+  sed -i 's/DataSource=URemote.db/DataSource=\/uremote-data\/URemote.db/' /var/www/uremote/appsettings.json
 
-VOLUME "/remotely-data"
+VOLUME "/uremote-data"
 
-WORKDIR /var/www/remotely
+WORKDIR /var/www/uremote
 
 COPY DockerMain.sh /
 

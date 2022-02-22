@@ -1,4 +1,4 @@
-﻿namespace Remotely.Shared.Enums
+﻿namespace URemote.Shared.Enums
 {
     public enum Platform
     {

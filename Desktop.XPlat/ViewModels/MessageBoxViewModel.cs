@@ -1,10 +1,10 @@
 ﻿using Avalonia.Controls;
 using ReactiveUI;
-using Remotely.Desktop.XPlat.Controls;
-using Remotely.Desktop.XPlat.Services;
+using URemote.Desktop.XPlat.Controls;
+using URemote.Desktop.XPlat.Services;
 using System.Windows.Input;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace URemote.Desktop.XPlat.ViewModels
 {
     public class MessageBoxViewModel : BrandedViewModelBase
     {

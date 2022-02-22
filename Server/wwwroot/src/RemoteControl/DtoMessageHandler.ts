@@ -69,7 +69,7 @@ export class DtoMessageHandler {
         ReceiveFile(file);
     }
     HandleScreenData(screenDataDto: ScreenDataDto) {
-        document.title = `${screenDataDto.MachineName} - Remotely Session`;
+        document.title = `${screenDataDto.MachineName} - URemote Session`;
         UI.ToggleConnectUI(false);
         UI.SetScreenSize(screenDataDto.ScreenWidth, screenDataDto.ScreenHeight);
         UI.UpdateDisplays(screenDataDto.SelectedDisplay, screenDataDto.DisplayNames);

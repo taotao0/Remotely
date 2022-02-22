@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.SignalR.Client;
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using URemote.Agent.Interfaces;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
+using URemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -10,7 +10,7 @@ using System.IO;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
 
     public class AppLauncherWin : IAppLauncher

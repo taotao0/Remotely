@@ -1,10 +1,10 @@
-﻿using Remotely.Shared.Enums;
+﻿using URemote.Shared.Enums;
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class EventLog
     {

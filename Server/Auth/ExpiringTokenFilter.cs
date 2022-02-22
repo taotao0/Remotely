@@ -2,15 +2,15 @@
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Logging;
-using Remotely.Server.Models;
-using Remotely.Server.Services;
-using Remotely.Shared.Utilities;
+using URemote.Server.Models;
+using URemote.Server.Services;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Auth
+namespace URemote.Server.Auth
 {
     public class ExpiringTokenFilter : ActionFilterAttribute, IAuthorizationFilter
     {

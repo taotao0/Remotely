@@ -1,14 +1,14 @@
 ﻿using MessagePack;
-using Remotely.Desktop.Core.Enums;
-using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Enums;
-using Remotely.Shared.Models.RemoteControlDtos;
-using Remotely.Shared.Utilities;
+using URemote.Desktop.Core.Enums;
+using URemote.Desktop.Core.Interfaces;
+using URemote.Shared.Enums;
+using URemote.Shared.Models.RemoteControlDtos;
+using URemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Services
+namespace URemote.Desktop.Core.Services
 {
     public interface IDtoMessageHandler
     {
@@ -89,8 +89,8 @@ namespace Remotely.Desktop.Core.Services
                         KeyUp(message);
                         break;
                     case BaseDtoType.CtrlAltDel:
-                        //await viewer.SendCtrlAltDelendCtrlAltDel();
-                        viewer.SendCtrlAltDel();
+                        KeyCtrlAltDel();
+                        await viewer.SendCtrlAltDel();
                         break;
                     case BaseDtoType.ToggleAudio:
                         ToggleAudio(message);
@@ -204,7 +204,7 @@ namespace Remotely.Desktop.Core.Services
 
         private void KeyCtrlAltDel()
         {
-            //KeyboardMouseInput.
+            KeyboardMouseInput.SendCtrlAltDel();
         }
 
         private void MouseDown(byte[] message, Viewer viewer)

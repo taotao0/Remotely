@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Identity;
-using Remotely.Shared.Models;
+using URemote.Shared.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,12 +8,12 @@ using System.Security.Claims;
 using System.Security.Principal;
 using System.Threading.Tasks;
 
-namespace Remotely.Server.Services
+namespace URemote.Server.Services
 {
     public interface IAuthService
     {
         Task<bool> IsAuthenticated();
-        Task<RemotelyUser> GetUser();
+        Task<RemoteUser> GetUser();
     }
 
     public class AuthService : IAuthService
@@ -35,7 +35,7 @@ namespace Remotely.Server.Services
             return principal?.User?.Identity?.IsAuthenticated ?? false;
         }
 
-        public async Task<RemotelyUser> GetUser()
+        public async Task<RemoteUser> GetUser()
         {
             var principal = await _authProvider.GetAuthenticationStateAsync();
 

@@ -1,20 +1,20 @@
 ﻿@page "/about"
 
-<h3>About Remotely</h3>
+<h3>About URemote</h3>
 
 <p>
-    Website: <a href="https://remotely.one">https://remotely.one</a>
+    Website: <a href="https://remote.cookmung.com">https://remote.cookmung.com</a>
 </p>
 <p>
-    Contact:  <a href="https://remotely.one/Contact">https://remotely.one/Contact</a>
+    Contact:  <a href="https://remote.cookmung.com/Contact">https://remote.cookmung.com/Contact</a>
 </p>
 <p>
     Open-Source Licenses: <a href="/credits">Credits</a>
 </p>
 <p>
-    Version: @if (System.IO.File.Exists("Remotely_Server.dll"))
+    Version: @if (System.IO.File.Exists("URemote_Server.dll"))
     {
-        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("Remotely_Server.dll").FileVersion.ToString()</span>
+        <span>@System.Diagnostics.FileVersionInfo.GetVersionInfo("URemote_Server.dll").FileVersion.ToString()</span>
     }
     else
     {

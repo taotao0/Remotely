@@ -1,9 +1,9 @@
-﻿using Remotely.Shared.Utilities;
+﻿using URemote.Shared.Utilities;
 using System;
 using System.Diagnostics;
 using System.ServiceProcess;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     partial class WindowsService : ServiceBase
     {
@@ -22,7 +22,7 @@ namespace Remotely.Agent.Services
                    changeDescription.Reason == SessionChangeReason.RemoteDisconnect)
                 {
 
-                    foreach (var screenCaster in Process.GetProcessesByName("Remotely_Desktop"))
+                    foreach (var screenCaster in Process.GetProcessesByName("URemote_Desktop"))
                     {
                         if (screenCaster.SessionId == changeDescription.SessionId)
                         {

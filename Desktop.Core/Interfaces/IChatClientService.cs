@@ -1,6 +1,6 @@
 ﻿using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace URemote.Desktop.Core.Interfaces
 {
     public interface IChatClientService
     {

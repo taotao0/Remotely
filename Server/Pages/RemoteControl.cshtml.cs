@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using URemote.Server.Auth;
+using URemote.Server.Services;
+using URemote.Shared.Models;
 
-namespace Remotely.Server.Pages
+namespace URemote.Server.Pages
 {
     [ServiceFilter(typeof(RemoteControlFilterAttribute))]
     public class RemoteControlModel : PageModel
@@ -15,12 +15,12 @@ namespace Remotely.Server.Pages
             _dataService = dataService;
         }
 
-        public RemotelyUser RemotelyUser { get; private set; }
+        public RemoteUser RemoteUser { get; private set; }
         public void OnGet()
         {
             if (User.Identity.IsAuthenticated)
             {
-                RemotelyUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
+                RemoteUser = _dataService.GetUserByNameWithOrg(base.User.Identity.Name);
             }
         }
     }

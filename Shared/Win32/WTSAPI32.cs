@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.InteropServices;
 
-namespace Remotely.Shared.Win32
+namespace URemote.Shared.Win32
 {
     public static class WTSAPI32
     {

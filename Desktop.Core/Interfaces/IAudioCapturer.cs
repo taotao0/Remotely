@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace URemote.Desktop.Core.Interfaces
 {
     public interface IAudioCapturer
     {

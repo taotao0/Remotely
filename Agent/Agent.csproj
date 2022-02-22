@@ -5,21 +5,26 @@
     <TargetFramework>net5.0</TargetFramework>
     <TargetLatestRuntimePatch>true</TargetLatestRuntimePatch>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <Copyright>Copyright ©  2021 Translucency Software</Copyright>
-    <Description>Background service that maintains a connection to the Remotely server.  The service is used for remote support and maintenance by this computer's administrators.</Description>
-    <Authors>Jared Goodwin</Authors>
-    <Product>Remotely Agent</Product>
-    <Company>Translucency Software</Company>
+    <Copyright>Copyright ©  2022 Uclick</Copyright>
+    <Description>Background service that maintains a connection to the URemote server.  The service is used for remote support and maintenance by this computer's administrators.</Description>
+    <Authors>kjb</Authors>
+    <Product>URemote Agent</Product>
+    <Company>Uclick</Company>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
-    <PackageProjectUrl>https://remotely.one</PackageProjectUrl>
+    <PackageProjectUrl>http://www.uclick.co.kr/</PackageProjectUrl>
     <Platforms>AnyCPU;x86;x64</Platforms>
-    <AssemblyName>Remotely_Agent</AssemblyName>
-    <RootNamespace>Remotely.Agent</RootNamespace>
+    <AssemblyName>URemote_Agent</AssemblyName>
+    <RootNamespace>URemote.Agent</RootNamespace>
     <ApplicationIcon>Assets\favicon.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\favicon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="Assets\favicon.ico" />
+    <Content Include="Assets\favicon_temp.ico" />
   </ItemGroup>
 
   <ItemGroup>
@@ -37,6 +42,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Shared\Shared.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\favicon.ico" />
   </ItemGroup>
 
 

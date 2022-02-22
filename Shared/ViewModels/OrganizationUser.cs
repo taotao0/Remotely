@@ -1,4 +1,4 @@
-﻿namespace Remotely.Shared.ViewModels
+﻿namespace URemote.Shared.ViewModels
 {
     public class OrganizationUser
     {

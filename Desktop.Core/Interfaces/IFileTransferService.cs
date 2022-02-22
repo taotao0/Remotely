@@ -1,10 +1,10 @@
-﻿using Remotely.Desktop.Core.Services;
-using Remotely.Desktop.Core.ViewModels;
+﻿using URemote.Desktop.Core.Services;
+using URemote.Desktop.Core.ViewModels;
 using System;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Remotely.Desktop.Core.Interfaces
+namespace URemote.Desktop.Core.Interfaces
 {
     public interface IFileTransferService
     {

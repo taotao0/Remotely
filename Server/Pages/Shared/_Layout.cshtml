@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Hosting
 @using Microsoft.AspNetCore.Mvc.ViewEngines
-@using Remotely.Server.Services
-@using Remotely.Shared.Models
+@using URemote.Server.Services
+@using URemote.Shared.Models
 @inject IApplicationConfig AppConfig
 @inject IWebHostEnvironment Environment
 @inject ICompositeViewEngine Engine
@@ -40,16 +40,16 @@
     <link rel="stylesheet" href="~/Identity/css/site.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
-    @if (user is RemotelyUser)
+    @if (user is RemoteUser)
     {
 
         switch (user.UserOptions.Theme)
         {
-            case Remotely.Shared.Enums.Theme.Light:
+            case URemote.Shared.Enums.Theme.Light:
                 <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />
                 break;
-            case Remotely.Shared.Enums.Theme.Dark:
+            case URemote.Shared.Enums.Theme.Dark:
                 <link rel="stylesheet" href="~/css/Themes/darkly.min.css" />
                 <link rel="stylesheet" href="~/css/Themes/darkly.custom.css" asp-append-version="true" />
                 break;
@@ -59,7 +59,7 @@
     }
     else
     {
-        if (AppConfig.Theme == Remotely.Shared.Enums.Theme.Light)
+        if (AppConfig.Theme == URemote.Shared.Enums.Theme.Light)
         {
             <link rel="stylesheet" href="~/css/Themes/yeti.min.css" />
             <link rel="stylesheet" href="~/css/Themes/yeti.custom.css" asp-append-version="true" />

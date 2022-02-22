@@ -1,12 +1,12 @@
-﻿using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using URemote.Shared.Models;
+using URemote.Shared.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.Json;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     public class ConfigService
     {

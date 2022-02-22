@@ -1,15 +1,15 @@
-using Remotely.Agent.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Services;
-using Remotely.Shared.Utilities;
-using Remotely.Shared.Win32;
+using URemote.Agent.Interfaces;
+using URemote.Shared.Models;
+using URemote.Shared.Services;
+using URemote.Shared.Utilities;
+using URemote.Shared.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remotely.Agent.Services
+namespace URemote.Agent.Services
 {
     public class DeviceInformationServiceMac : DeviceInformationServiceBase, IDeviceInformationService
     {

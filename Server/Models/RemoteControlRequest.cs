@@ -1,4 +1,4 @@
-﻿namespace Remotely.Server.Models
+﻿namespace URemote.Server.Models
 {
     public class RemoteControlRequest
     {

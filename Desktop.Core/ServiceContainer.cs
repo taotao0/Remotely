@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Remotely.Desktop.Core
+namespace URemote.Desktop.Core
 {
     public class ServiceContainer
     {

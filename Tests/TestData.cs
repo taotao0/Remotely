@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using Moq;
-using Remotely.Server.Areas.Identity.Pages.Account.Manage;
-using Remotely.Server.Data;
-using Remotely.Server.Services;
-using Remotely.Shared.Models;
+using URemote.Server.Areas.Identity.Pages.Account.Manage;
+using URemote.Server.Data;
+using URemote.Server.Services;
+using URemote.Shared.Models;
 using System;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Remotely.Tests
+namespace URemote.Tests
 {
     public class TestData
     {
@@ -19,16 +19,16 @@ namespace Remotely.Tests
             Init().Wait();
         }
 
-        public RemotelyUser Admin1 { get; } = new RemotelyUser()
+        public RemoteUser Admin1 { get; } = new RemoteUser()
         {
             UserName = "admin1@test.com",
             IsAdministrator = true,
             IsServerAdmin = true,
             Organization = new Organization(),
-            UserOptions = new RemotelyUserOptions()
+            UserOptions = new RemoteUserOptions()
         };
 
-        public RemotelyUser Admin2 { get; private set; } 
+        public RemoteUser Admin2 { get; private set; } 
 
         public Device Device1 { get; private set; } = new Device()
         {
@@ -54,9 +54,9 @@ namespace Remotely.Tests
 
         public string OrganizationID { get; private set; }
 
-        public RemotelyUser User1 { get; private set; }
+        public RemoteUser User1 { get; private set; }
 
-        public RemotelyUser User2 { get; private set; }
+        public RemoteUser User2 { get; private set; }
 
         public void ClearData()
         {
@@ -74,7 +74,7 @@ namespace Remotely.Tests
             ClearData();
 
             var dataService = IoCActivator.ServiceProvider.GetRequiredService<IDataService>();
-            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<RemotelyUser>>();
+            var userManager = IoCActivator.ServiceProvider.GetRequiredService<UserManager<RemoteUser>>();
             var emailSender = IoCActivator.ServiceProvider.GetRequiredService<IEmailSenderEx>();
 
             await userManager.CreateAsync(Admin1);

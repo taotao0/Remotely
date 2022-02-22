@@ -1,12 +1,12 @@
 ﻿using Avalonia;
 using Avalonia.Controls;
 using Avalonia.ReactiveUI;
-using Remotely.Desktop.Core;
-using Remotely.Shared.Utilities;
+using URemote.Desktop.Core;
+using URemote.Shared.Utilities;
 using System;
 using System.Threading;
 
-namespace Remotely.Desktop.XPlat
+namespace URemote.Desktop.XPlat
 {
     class Program
     {

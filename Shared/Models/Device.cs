@@ -1,12 +1,12 @@
-﻿using Remotely.Shared.Attributes;
-using Remotely.Shared.Enums;
+﻿using URemote.Shared.Attributes;
+using URemote.Shared.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Runtime.InteropServices;
 using System.Text.Json.Serialization;
 
-namespace Remotely.Shared.Models
+namespace URemote.Shared.Models
 {
     public class Device
     {

@@ -1,6 +1,6 @@
 ﻿using ReactiveUI;
 
-namespace Remotely.Desktop.XPlat.ViewModels
+namespace URemote.Desktop.XPlat.ViewModels
 {
     public class ReactiveViewModel : ReactiveObject
     {

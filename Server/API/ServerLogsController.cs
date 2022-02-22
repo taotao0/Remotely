@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Remotely.Server.Auth;
-using Remotely.Server.Services;
+using URemote.Server.Auth;
+using URemote.Server.Services;
 using System.Text;
 using System.Text.Json;
 
-namespace Remotely.Server.API
+namespace URemote.Server.API
 {
     [Route("api/[controller]")]
     [ApiController]

@@ -1,7 +1,7 @@
 {
-  "id": "Remotely",
-  "name": "Remotely",
-  "short_name": "Remotely",
+  "id": "URemote",
+  "name": "URemote",
+  "short_name": "URemote",
   "start_url": "./",
   "display": "standalone",
   "background_color": "black",
@@ -23,7 +23,7 @@
   "related_applications": [
     {
       "platform": "windows",
-      "url":  "./"
+      "url": "./"
     },
     {
       "platform": "play",

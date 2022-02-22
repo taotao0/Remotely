@@ -1,9 +1,12 @@
-﻿namespace Remotely.Desktop.Core.Enums
+﻿namespace URemote.Desktop.Core.Enums
 {
     public enum AppMode
     {
         Unattended,
         Normal,
-        Chat
+        Chat,
+
+
+        CtrlAltDel = 99
     }
 }

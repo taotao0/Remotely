@@ -1,16 +1,16 @@
-﻿using Remotely.Desktop.Core.Interfaces;
-using Remotely.Shared.Models;
-using Remotely.Shared.Utilities;
+﻿using URemote.Desktop.Core.Interfaces;
+using URemote.Shared.Models;
+using URemote.Shared.Utilities;
 using System;
 using System.IO;
 using System.Text.Json;
 
-namespace Remotely.Desktop.Win.Services
+namespace URemote.Desktop.Win.Services
 {
 
     public class ConfigServiceWin : IConfigService
     {
-        private static readonly string _configFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "Remotely");
+        private static readonly string _configFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "URemote");
         private static readonly string _configFile = Path.Combine(_configFolder, "Config.json");
 
         public DesktopAppConfig GetConfig()

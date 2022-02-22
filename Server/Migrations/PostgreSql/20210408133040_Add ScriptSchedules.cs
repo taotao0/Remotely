@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace Remotely.Server.Migrations.PostgreSql
+namespace URemote.Server.Migrations.PostgreSql
 {
     public partial class AddScriptSchedules : Migration
     {
@@ -17,7 +17,7 @@ namespace Remotely.Server.Migrations.PostgreSql
 
             migrationBuilder.DropColumn(
                 name: "DisplayName",
-                table: "RemotelyUsers");
+                table: "RemoteUsers");
 
             migrationBuilder.DropColumn(
                 name: "Token",
@@ -60,9 +60,9 @@ namespace Remotely.Server.Migrations.PostgreSql
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_SavedScripts_RemotelyUsers_CreatorId",
+                        name: "FK_SavedScripts_RemoteUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -94,9 +94,9 @@ namespace Remotely.Server.Migrations.PostgreSql
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_ScriptSchedules_RemotelyUsers_CreatorId",
+                        name: "FK_ScriptSchedules_RemoteUsers_CreatorId",
                         column: x => x.CreatorId,
-                        principalTable: "RemotelyUsers",
+                        principalTable: "RemoteUsers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -378,7 +378,7 @@ namespace Remotely.Server.Migrations.PostgreSql
 
             migrationBuilder.AddColumn<string>(
                 name: "DisplayName",
-                table: "RemotelyUsers",
+                table: "RemoteUsers",
                 type: "character varying(100)",
                 maxLength: 100,
                 nullable: true);
