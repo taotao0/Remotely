@@ -108,12 +108,13 @@ namespace Remotely.Desktop.Core.Services
                 !PendingSentFrames.TryPeek(out var result) || DateTimeOffset.Now - result.Timestamp < TimeSpan.FromSeconds(1),
                 TimeSpan.FromSeconds(5));
 
-
+            /*
             Debug.WriteLine(
                 $"Current Mbps: {CurrentMbps}.  " +
                 $"Current FPS: {CurrentFps}.  " +
                 $"Roundtrip Latency: {RoundTripLatency}.  " +
                 $"Image Quality: {ImageQuality}");
+            */
         }
 
         public void CalculateFps()

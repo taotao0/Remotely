@@ -6,6 +6,7 @@ using Remotely.Shared.Win32;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -62,12 +63,14 @@ namespace Remotely.Desktop.Win.Services
                         ki = new KEYBDINPUT()
                         {
                             wVk = keyCode.Value,
+                            //wVk = VkKeyScan(keyCode.Value),
                             wScan = (ScanCodeShort)MapVirtualKeyEx((uint)keyCode.Value, VkMapType.MAPVK_VK_TO_VSC, GetKeyboardLayout()),
                             time = 0,
+                            dwFlags = KEYEVENTF.UNICODE,
                             dwExtraInfo = GetMessageExtraInfo()
                         }
                     };
-                    
+
                     var input = new INPUT() { type = InputType.KEYBOARD, U = union };
                     /*
                     int idx = keyboardInputList.FindIndex(i => i.U.ki.wVk == keyCode.Value);
@@ -113,7 +116,7 @@ namespace Remotely.Desktop.Win.Services
                             wVk = keyCode.Value,
                             wScan = (ScanCodeShort)MapVirtualKeyEx((uint)keyCode.Value, VkMapType.MAPVK_VK_TO_VSC, GetKeyboardLayout()),
                             time = 0,
-                            dwFlags = KEYEVENTF.KEYUP,
+                            dwFlags = KEYEVENTF.UNICODE | KEYEVENTF.KEYUP,
                             dwExtraInfo = GetMessageExtraInfo()
                         }
                     };
